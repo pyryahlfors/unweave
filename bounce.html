@@ -1,0 +1,67 @@
+<html><head>
+    <style>
+        canvas {border: 1px solid black; cursor: crosshair;}
+p {margin: 0;}
+    </style>
+    </head>
+<body>
+    <canvas id="gameCanvas" width="300" height="150"></canvas>
+<p>Throw the ball by holding and releasing the left mouse button on the canvas (reverse slingshot)</p>
+    <script type="text/javascript">
+        var canvas,
+  ctx,
+  cx = 100,
+  cy = 100,
+  vy = 0,
+  radius = 5,
+  gravity = 0.2,
+  damping = 0.9,
+  bounceHistory = 0;
+  ;
+
+function init() {
+  canvas = document.getElementById("gameCanvas");
+  ctx = canvas.getContext("2d");
+
+  canvas.width = 300;
+  canvas.height = 150;
+
+  circle();
+}
+
+function circle() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  var nakki = requestAnimationFrame(circle);
+
+  if (cy + radius >= canvas.height) {
+    vy = -vy * damping;
+    cy = canvas.height - radius;
+    // traction here
+  } else if (cy - radius <= 0) {
+    vy = -vy * damping;
+    cy = radius;
+  }
+
+  vy += gravity; // <--- this is it
+  cy += vy;
+
+
+  ctx.beginPath();
+  ctx.arc(100, cy, radius, 0, 2 * Math.PI, false);
+  ctx.fillStyle = 'green';
+  ctx.fill();
+  if(Math.round(cy+vy) === canvas.height-radius) {bounceHistory++;}
+  else {bounceHistory = 0;}
+  if(bounceHistory > 20){
+      console.log('FAK');
+      cancelAnimationFrame(nakki);
+      return;
+  }
+}
+
+init();
+
+    </script>
+
+</body></html>
