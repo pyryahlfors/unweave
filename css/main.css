@@ -39,6 +39,7 @@ h1 {
 	font-weight: 100;
 	color: #fff;
 	margin: 0 0 1em;
+    position: absolute;
 }
 
 * {
@@ -84,9 +85,10 @@ a {
 
 .menu-buttons {
 	transform: translateZ(1);
-	position: relative;
-	width: 100%;
-    height: 100%;
+	position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
     display: flex;
     flex-direction: column-reverse;
 	}
@@ -107,6 +109,9 @@ a {
 	border-radius: 3px;
     width: 100%;
 }
+.menu-button:first-of-type{
+    margin-bottom: 0;
+}
 
 .menu-button:hover {opacity: .9;}
 
@@ -116,6 +121,10 @@ a {
 	padding: 20px 20px 60px;
 	height: 100%;
 	width: 100%;
+}
+
+.menu-screen, .home-screen {
+    padding: 20px;
 }
 
 .canvas-container{
@@ -130,9 +139,7 @@ a {
 
 .level-select-container {
 	width: 100%;
-	top : 0;
-	left: 0;
-	padding: 20px 0px 20px;
+	padding: 80px 0px 20px;
     margin: 0 0 0 -10px;
     display: flex;
 	flex-wrap: wrap;
@@ -323,7 +330,6 @@ footer div {
 	line-height: 60px;
 	font-size: 1em;
 	color: #fff;
-	padding: 0 2em;
     width: 50%;
 }
 
@@ -331,10 +337,12 @@ footer div a {
     display: block;
     width: 100%;
     height: 100%;
-}
-footer div:first-of-type {
+    background: #4CB8C4;
+    background: -webkit-linear-gradient(to top, #4CB8C4 , #3CD3AD);
+    background: linear-gradient(to top, #4CB8C4 , #3CD3AD);
     border-right: 1px solid rgba(255,255,255,.3);
+    border-left: 1px solid rgba(0,0,0,.1);
 }
-footer div:last-of-type {
-    border-left: 1px solid rgba(0,0,0,.7);
-}
+
+footer div:last-of-type a{border-right: 0}
+footer div:first-of-type a{border-left: 0}
