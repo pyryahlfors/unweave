@@ -4,10 +4,10 @@ fpApp = {
 	home		: 'home',				// Default home
 	html5pushHistory: {},				// Push state history stack
 	usePushState	: false,			// If set to false application will use hash instead; .../home  ->  ...#/home
-	rootPath		: '.',				// Root path for includes
+	rootPath		: './unweave',				// Root path for includes
 	isOnLine		: navigator.onLine,	// is user online or offline
 	uAgent			: navigator.userAgent,
-	
+
 	start: function( params ) {
 		var animateSplash = (params.splash) ? true: false;
 		this.removeSplash({animate: true});
@@ -51,8 +51,8 @@ fpApp = {
 
 	routeLinks: function( elem ) {
 		if(!elem) {
-			var elem = document;
-			};
+			elem = document;
+			}
 		var links = elem.getElementsByTagName("A");
 		for(var i=0, j=links.length; i<j; i++) {
 			if(links[i].getAttribute("href") && links[i].getAttribute("href").indexOf('javascript:') == -1 && !links[i].classList.contains('do-not-route')) {
@@ -65,8 +65,8 @@ fpApp = {
 						return;
 						}
 					else{
-						document.location.hash = this.route
-						};
+						document.location.hash = this.route;
+						}
 					return;
 					}, false);
 				}
@@ -80,10 +80,10 @@ fpApp = {
 			}
 		else{
 			document.location.hash = path;
-			};
+			}
 		},
-		
-	
+
+
 // Parse url; strip master layout and parameters and return those
 	parseURL: function( paramsURL ){
 		fp.ajax.abortAll();
@@ -93,7 +93,7 @@ fpApp = {
 		var page = paramsURL.split("/");
 		for(var i=1; i < page.length; i++){
 			params.push(page[i]);
-			};
+			}
 
 		redirect.master = page[0];
 		redirect.params = params;
@@ -106,12 +106,12 @@ fpApp = {
 		// Redirect only if master changes
 		if(fpApp.location.master ==  loc.master){
 			loc.params+=";doUpdate=true";
-			};
+			}
 		if(typeof(fpApp.layouts[loc.master]) == 'function'){
 			fpApp.location = loc;
 			fpApp.layouts[loc.master](loc.params);
 			}
-			
+
 		var vent = new CustomEvent("routeend", {
 			detail: {}
 			});
@@ -127,9 +127,9 @@ fpApp = {
 			valsep = vs;
 			}
 
-		var par = {}
+		var par = {};
 		var prop = String(str).split(sep);
-						
+
 		for(var i=0;i<prop.length;i++) {
 			var cprop = prop[i].split(valsep);
 			if(cprop.length>=2)
@@ -140,17 +140,17 @@ fpApp = {
 			}
 		return par;
 		},
-	
+
 	removeSplash: function(params){
 		var splashScreen = document.querySelector('.splash-screen');
 		if(!splashScreen) {
 			window.scrollTo(0,0);
 			return;
-			};
+			}
 
 		splashScreen.parentNode.removeChild(splashScreen);
 		},
-	
+
 	handleError: function(message, url, linenumber){
 		console.log(message + " | " + url + " | " + linenumber);
 		return;
@@ -164,7 +164,7 @@ if(fpApp.usePushState){window.onpopstate = function(event){fpApp.init();};}
 else{
 	window.onhashchange = function(){fpApp.init();};
 	};
-	
+
 window.onerror = function(message, url, linenumber) {
 	return fpApp.handleError(message, url, linenumber);
 	};
