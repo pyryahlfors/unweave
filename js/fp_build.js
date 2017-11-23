@@ -8,10 +8,10 @@
 (function(){
 	var initialized = false;
 	// If run from local machine use relative path instead of fixed
-	var appRoot = '.';
+	var appRoot = './unweave';
 
 	// FP path
-	var fpPath = appRoot + '/unweave/js/fpfw/';
+	var fpPath = appRoot + '/js/fpfw/';
 	var loadFpfw = document.createElement("script");
 	loadFpfw.src = fpPath+'fp_fw.js'+'?disablecache='+Math.round(Math.random()*9999);
 	loadFpfw.language = "javascript";
@@ -64,7 +64,7 @@
 					window.globalClickEvent = (isTouchDevice) ? 'touchend' : 'click';
 					if(isTouchDevice && fpApp.uAgent.match(/Windows Phone/i)) {
 						window.globalClickEvent = 'click';
-						};
+						}
 					window.globalMouseDown = (isTouchDevice) ? 'touchstart' : 'mousedown';
 					window.globalMouseUp = (isTouchDevice) ? 'touchend' : 'mouseup';
 					window.globalMouseMove = (isTouchDevice) ? 'touchmove' : 'mousemove';
