@@ -11,7 +11,7 @@
 	var appRoot = '.';
 
 	// FP path
-	var fpPath = appRoot + '/js/fpfw/';
+	var fpPath = appRoot + '/unweave/js/fpfw/';
 	var loadFpfw = document.createElement("script");
 	loadFpfw.src = fpPath+'fp_fw.js'+'?disablecache='+Math.round(Math.random()*9999);
 	loadFpfw.language = "javascript";
