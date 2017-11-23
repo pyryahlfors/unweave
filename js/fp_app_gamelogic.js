@@ -19,8 +19,8 @@ var unweave = {
 		},
 
 	loadSounds : function(){
-		fpAudio.loadAudio('unweave', 'mouseup', 'sounds/cowbell.'+fpAudio.support, 1);
-		fpAudio.loadAudio('unweave', 'levelcleared', 'sounds/level_clear.'+fpAudio.support, 1);
+		fpAudio.loadAudio('unweave', 'mouseup', 'unweave/sounds/cowbell.'+fpAudio.support, 1);
+		fpAudio.loadAudio('unweave', 'levelcleared', 'unweave/sounds/level_clear.'+fpAudio.support, 1);
 		},
 
 	colors 			: {
