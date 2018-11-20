@@ -8,7 +8,7 @@
 (function(){
 	var initialized = false;
 	// If run from local machine use relative path instead of fixed
-	var appRoot = './unweave';
+	var appRoot = '.';
 
 	// FP path
 	var fpPath = appRoot + '/js/fpfw/';
@@ -37,13 +37,8 @@
 
 		fp.path = fpPath; // Overwrite the default value
 		fp.createBuild(
-			{ path: appRoot + '/js/', file: 'fp_poly.js', init: false, confirmLoad: 'typeof(fp.poly)', disableCache: true },			// Polyfills
-			{ path: fp.path, file: 'fp_animate.js', init: false, confirmLoad: 'typeof(cssAnimate)', disableCache: true },				// Kiintopiste animate lib
-			{ path: fp.path, file: 'fp_ajax.js', init: false, confirmLoad: 'typeof(fp.ajax)', disableCache: true },						// Ajax
-			{ path: fp.path, file: 'fp_dom.js', init: false, confirmLoad: 'typeof(fpDOM)', disableCache: true },						// DOM element renderer
-			{ path: fp.path, file: 'fp_audio.js', disableCache: true, confirmLoad : 'typeof(fpAudio)' },								// Audio support
+			{ path: fp.path, file: 'fp_utils.js', disableCache: true, confirmLoad : 'typeof(fpAudio)' },								// Audio support
 			{ path: appRoot + '/js/', file: 'fp_app.js', init: false, confirmLoad: 'typeof(fpApp)', disableCache: true },				// *** Routing ***
-			{ path: appRoot + '/js/', file: 'fp_app_helpers.js', init: false, confirmLoad: 'typeof(fpApp.helpers)', disableCache: true },	// *** Helper functions ***
 			{ path: appRoot + '/js/', file: 'fp_app_gamelogic.js', init: false, confirmLoad: 'typeof(unweave)', disableCache: true },	// unweave game
 			{ path: appRoot + '/js/', file: 'levels.js', init: false, confirmLoad: 'typeof(unweave.levels)', disableCache: true },	// unweave game
 
