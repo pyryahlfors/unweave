@@ -8,7 +8,7 @@
 (function(){
 	var initialized = false;
 	// If run from local machine use relative path instead of fixed
-	var appRoot = '.';
+	var appRoot = '/projects/unweave';
 
 	// FP path
 	var fpPath = appRoot + '/js/fpfw/';
