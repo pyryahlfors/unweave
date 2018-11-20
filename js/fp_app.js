@@ -4,7 +4,7 @@ fpApp = {
 	home		: 'home',				// Default home
 	html5pushHistory: {},				// Push state history stack
 	usePushState	: false,			// If set to false application will use hash instead; .../home  ->  ...#/home
-	rootPath		: './projects/unweave/',				// Root path for includes
+	rootPath		: '/projects/unweave/',				// Root path for includes
 	isOnLine		: navigator.onLine,	// is user online or offline
 	uAgent			: navigator.userAgent,
 
