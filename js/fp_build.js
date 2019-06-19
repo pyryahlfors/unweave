@@ -78,3 +78,18 @@
 			});
 		};
 	})();
+
+CanvasRenderingContext2D.prototype.clear = function() {
+    this.save();
+    this.globalCompositeOperation = 'destination-out';
+    this.fillStyle = 'black';
+    this.fill();
+    this.restore();
+};
+
+
+CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) {
+    this.beginPath();
+    this.arc(x, y, radius, 0, Math.PI*2, true);
+    this.clear();
+};
